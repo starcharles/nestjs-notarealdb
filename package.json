@@ -1,7 +1,7 @@
 {
   "name": "nestjs-notarealdb",
   "version": "0.0.0",
-  "description": "notarealdb for NestJS",
+  "description": "wrapper of notarealdb for NestJS",
   "author": "Naoto Satoh <stardustforever012@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
@@ -15,7 +15,7 @@
     "test:cov": "jest --coverage",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
-    "version": "git add -A lib",
+    "version": "git add -A src",
     "postversion": "git push && git push --tags",
     "semantic-release": "semantic-release"
   },
@@ -87,7 +87,7 @@
     "testEnvironment": "node"
   },
   "directories": {
-    "test": "__tests__"
+    "test": "tests"
   },
   "config": {
     "commitizen": {

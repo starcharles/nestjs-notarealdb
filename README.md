@@ -5,8 +5,6 @@ You don't need to prepare DB. use json file.
  - ### Attention `This is not for Production use.`
  - only development use is prefer
 
-[![NPM package link](https://nodei.co/npm/nestjs-ip-middlewa.png?downloads=true&cacheBust=2)](https://www.npmjs.com/package/nestjs-ip-middleware)
-
 ## Installation
 
 ```shell script
@@ -16,41 +14,70 @@ npm install nestjs-notarealdb
 
 ## Example module setup
 
+#### import at app.module.ts
 ```typescript
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { RequestIpMiddleware } from 'nestjs-ip-middleware'
+import { ApplesModule } from './apples/apples.module';
+import { NotARealDbModule } from '../../nestjs-notarealdb';
 
 @Module({
-  imports: [],
+  imports: [
+    ApplesModule,
+    NotARealDbModule.forRoot({
+      retry: true,
+      dataDirName: 'store'
+    })],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(RequestIpMiddleware)
-      .forRoutes('*');
-  }
-}
+export class AppModule {}
+
 ```
-
-## Example Usage at Controller
-
+#### Then, import at feature modules like this
 ```typescript
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+import { Module } from '@nestjs/common';
+import { ApplesService } from './apples.service';
+import { ApplesController } from './apples.controller';
+import { Apple } from '../shared/models/apple.model';
+import { NotARealDbModule } from 'nestjs-notarealdb';
 
-  @Get('real-ip')
-  getIp(@Req() req: Request): string {
-    return req.realIp; // req.realIp is set by this middleware
+@Module({
+  imports:[
+    NotARealDbModule.forFeature([Apple])
+  ],
+  controllers: [
+    ApplesController,
+  ],
+  providers: [ApplesService]
+})
+export class ApplesModule {}
+```
+
+### service: @InjectCollection is need.
+```typescript
+export class ApplesService {
+  constructor(@InjectCollection(Apple) private readonly collection: Collection<Apple>) {
   }
+
+  create(createAppleDto: CreateAppleDto) {
+    return this.collection.create(createAppleDto)
+  }
+
+  findAll() {
+    this.collection.list()
+  }
+
+  findOne(id: string) {
+    return this.collection.get(id)
+  }
+
+.....................
+
 }
 
-
-```
+````
 
 ## License
 The code is under MIT license. See the LICENSE file for details.
