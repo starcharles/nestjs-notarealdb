@@ -40,14 +40,4 @@ export class NotARealDbCoreModule {
     );
     return new DataStore(dirPath);
   }
-
-  // private static createEntityManagerProvider(
-  //   options: NotARealDbOptions,
-  // ): Provider {
-  //   return {
-  //     provide: ENTITY_MANAGER_TOKEN,
-  //     useFactory: (connection: Connection) => connection.manager,
-  //     inject: [getStoreName()],
-  //   };
-  // }
 }
