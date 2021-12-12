@@ -34,11 +34,9 @@ export class NotARealDbCoreModule {
 
   private static createConnection(options: NotARealDbOptions): DataStore {
     const dirPath = path.resolve(
-      __dirname,
-      '../../',
+      process.cwd(),
       options.dataDirName ?? DEFAULT_DATA_DIRECTORY_NAME,
     );
-    console.log('dirPath:', dirPath);
     return new DataStore(dirPath);
   }
 }
