@@ -5,16 +5,7 @@ import { BaseEntity, NotARealDbOptions } from './interfaces';
 
 @Module({})
 export class NotARealDbModule {
-  static forRoot(
-    options: NotARealDbOptions = {
-      disabled: false,
-      retry: false,
-    },
-  ): DynamicModule {
-    if (options.disabled)
-      return {
-        module: NotARealDbModule,
-      };
+  static forRoot(options: NotARealDbOptions = {}): DynamicModule {
     return {
       module: NotARealDbModule,
       imports: [NotARealDbCoreModule.forRoot(options)],

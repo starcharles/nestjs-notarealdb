@@ -26,8 +26,7 @@ import { NotARealDbModule } from '../../nestjs-notarealdb';
   imports: [
     ApplesModule,
     NotARealDbModule.forRoot({
-      retry: true,
-      dataDirName: 'store'
+      dataDirName: 'store' // anyting you want. default 'data'
     })],
   controllers: [AppController],
   providers: [AppService],
