@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{env.node-version}}
-          cache: npm
+#          cache: npm
       - run: npm install
       - name: Release
         if: ${{!env.ACT}}
