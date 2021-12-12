@@ -35,7 +35,7 @@ export class NotARealDbCoreModule {
   private static createConnection(options: NotARealDbOptions): DataStore {
     const pwd =
       process.env.NODE_ENV === 'test'
-        ? `${process.cwd()}/tests/app/`
+        ? `${process.cwd()}/test/app/`
         : process.cwd();
     const dirPath = path.resolve(
       pwd,
