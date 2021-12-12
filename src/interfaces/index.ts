@@ -1,3 +1,5 @@
+import { Collection, Entity, DataStore } from 'notarealdb';
+
 export * from './notarealdb-options.interface';
 export * from './entity-class.type';
-export * from './base.entity';
+export { Collection, Entity, DataStore };

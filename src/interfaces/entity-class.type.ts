@@ -1,3 +1,6 @@
-import { BaseEntity } from './base.entity';
+interface Entity {
+  id: string;
+  [key: string]: any;
+}
 
-export interface EntityClassType extends BaseEntity {}
+export type BaseEntity = Entity;

@@ -1,6 +1,6 @@
 import { DynamicModule, Global, Inject, Module } from '@nestjs/common';
 import { DataStore } from 'notarealdb';
-import path from 'path';
+import * as path from 'path';
 import { NotARealDbOptions } from './interfaces';
 import {
   DEFAULT_DATA_DIRECTORY_NAME,
@@ -22,7 +22,7 @@ export class NotARealDbCoreModule {
     };
     const connectionProvider = {
       provide: NOTATREALDB_STORE_CONNECTION,
-      useFactory: () => this.createConnection(options),
+      useValue: this.createConnection(options),
     };
 
     return {
@@ -38,6 +38,7 @@ export class NotARealDbCoreModule {
       '../../',
       options.dataDirName ?? DEFAULT_DATA_DIRECTORY_NAME,
     );
+    console.log('dirPath:', dirPath);
     return new DataStore(dirPath);
   }
 }

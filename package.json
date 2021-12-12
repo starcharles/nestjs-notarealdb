@@ -4,7 +4,7 @@
   "description": "wrapper of notarealdb for NestJS",
   "author": "Naoto Satoh <stardustforever012@gmail.com>",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "repositoryUrl": "https://github.com/starcharles/nestjs-notarealdb",
   "scripts": {
     "build": "rimraf ./dist && tsc",
