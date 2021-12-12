@@ -20,7 +20,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApplesModule } from './apples/apples.module';
-import { NotARealDbModule } from '../../nestjs-notarealdb';
+import { NotARealDbModule } from 'nestjs-notarealdb';
 
 @Module({
   imports: [
