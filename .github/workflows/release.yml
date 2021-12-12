@@ -4,6 +4,28 @@ on:
     branches:
       - master
 jobs:
+  build-and-test:
+    strategy:
+      matrix:
+        os: [ ubuntu-20.04, macos-latest ]
+        node: [ '14', '16' ]
+    runs-on: ${{matrix.os}}
+    name: Build and Test(Node ${{ matrix.node }} on ${{ matrix.os }})
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      #          cache: npm
+      - run: npm install
+      - name: lint
+        run: npm run lint
+      - name: build
+        run: npm run build
+      - name: test
+        run: npm test
   release:
     runs-on: ubuntu-20.04
     env:

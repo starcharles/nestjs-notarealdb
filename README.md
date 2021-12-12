@@ -1,4 +1,5 @@
 # Nest.js Json Based DB.
+[![release](https://github.com/starcharles/nestjs-notarealdb/actions/workflows/release.yml/badge.svg?branch=master&event=push)](https://github.com/starcharles/nestjs-notarealdb/actions/workflows/release.yml)
 
 You don't need to prepare DB. use json file.
  - simple wrapper of package [mirkonasato/notarealdb](https://github.com/mirkonasato/notarealdb) for NestJS
@@ -20,7 +21,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApplesModule } from './apples/apples.module';
-import { NotARealDbModule } from '../../nestjs-notarealdb';
+import { NotARealDbModule } from 'nestjs-notarealdb';
 
 @Module({
   imports: [

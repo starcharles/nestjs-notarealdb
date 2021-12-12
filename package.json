@@ -87,7 +87,7 @@
     "testEnvironment": "node"
   },
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "config": {
     "commitizen": {
