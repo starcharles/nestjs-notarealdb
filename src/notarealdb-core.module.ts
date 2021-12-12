@@ -33,12 +33,14 @@ export class NotARealDbCoreModule {
   }
 
   private static createConnection(options: NotARealDbOptions): DataStore {
+    const pwd =
+      process.env.NODE_ENV === 'test'
+        ? `${process.cwd()}/tests/app/`
+        : process.cwd();
     const dirPath = path.resolve(
-      __dirname,
-      '../../',
+      pwd,
       options.dataDirName ?? DEFAULT_DATA_DIRECTORY_NAME,
     );
-    console.log('dirPath:', dirPath);
     return new DataStore(dirPath);
   }
 }
