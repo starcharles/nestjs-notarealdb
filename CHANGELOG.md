@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/starcharles/nestjs-notarealdb/compare/v1.0.0...v1.0.1) (2021-12-12)
+
+
+### Bug Fixes
+
+* 🐛 fix typo and failed test ([0115163](https://github.com/starcharles/nestjs-notarealdb/commit/01151630453b6e7b6868ac1f6c44f5cec5985711))
+
 # 1.0.0 (2021-12-12)
 
 
