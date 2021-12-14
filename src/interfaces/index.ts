@@ -1,5 +1,5 @@
-import { Collection, Entity, DataStore } from 'notarealdb';
+import { Collection } from '@starcharles/notarealdb';
 
 export * from './notarealdb-options.interface';
 export * from './entity-class.type';
-export { Collection, Entity, DataStore };
+export { Collection };
