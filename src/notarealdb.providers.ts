@@ -1,6 +1,6 @@
 import { Provider } from '@nestjs/common';
 import { BaseEntity } from './interfaces';
-import { Collection, DataStore } from 'notarealdb';
+import { Collection, DataStore } from '@starcharles/notarealdb';
 import { entityName, getRepositoryToken, getStoreName } from './utils';
 
 export function createCollections(entities: BaseEntity[] = []): Provider[] {

@@ -1,5 +1,5 @@
 import { DynamicModule, Global, Inject, Module } from '@nestjs/common';
-import { DataStore } from 'notarealdb';
+import { DataStore } from '@starcharles/notarealdb';
 import * as path from 'path';
 import { NotARealDbOptions } from './interfaces';
 import {
