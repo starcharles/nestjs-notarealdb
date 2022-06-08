@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/starcharles/nestjs-notarealdb/compare/v1.0.1...v1.1.0) (2022-06-08)
+
+
+### Features
+
+* 🎸 bump version ([6515914](https://github.com/starcharles/nestjs-notarealdb/commit/651591430c303602dbaabda09a7c9ad0044cae66))
+
 ## [1.0.1](https://github.com/starcharles/nestjs-notarealdb/compare/v1.0.0...v1.0.1) (2021-12-12)
 
 
