@@ -1,9 +1,11 @@
-import { Provider } from '@nestjs/common';
+import { Provider, Type } from '@nestjs/common';
 import { BaseEntity } from './interfaces';
 import { Collection, DataStore } from 'notarealdb';
 import { entityName, getRepositoryToken, getStoreName } from './utils';
 
-export function createCollections(entities: BaseEntity[] = []): Provider[] {
+export function createCollections(
+  entities: Type<BaseEntity>[] = [],
+): Provider[] {
   return entities.map(entity => ({
     inject: [getStoreName()],
     provide: getRepositoryToken(entity),
@@ -13,6 +15,6 @@ export function createCollections(entities: BaseEntity[] = []): Provider[] {
   }));
 }
 
-function getCollection(store: DataStore, entity: BaseEntity) {
+function getCollection(store: DataStore, entity: Type<BaseEntity>) {
   return store.collection(entityName(entity));
 }
