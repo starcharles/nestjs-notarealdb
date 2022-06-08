@@ -1,4 +1,4 @@
-import { Injectable, Type } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateAppleDto } from './dto/create-apple.dto';
 import { UpdateAppleDto } from './dto/update-apple.dto';
 import { Apple } from '../shared/models/apple.model';

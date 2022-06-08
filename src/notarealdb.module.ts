@@ -1,7 +1,7 @@
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule, Module, Type } from '@nestjs/common';
 import { NotARealDbCoreModule } from './notarealdb-core.module';
 import { createCollections } from './notarealdb.providers';
-import { NotARealDbOptions } from './interfaces';
+import { BaseEntity, NotARealDbOptions } from './interfaces';
 
 @Module({})
 export class NotARealDbModule {
@@ -12,7 +12,7 @@ export class NotARealDbModule {
     };
   }
 
-  static forFeature(entities: any[] = []): DynamicModule {
+  static forFeature(entities: Type<BaseEntity>[] = []): DynamicModule {
     const providers = createCollections(entities);
     return {
       module: NotARealDbModule,
